@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "check_id": "python.django.security.injection.sql.sql-injection-using-db-cursor-execute",
+      "path": "billing/queries.py",
+      "start": { "line": 42, "col": 5 },
+      "end": { "line": 42, "col": 68 },
+      "extra": {
+        "message": "Detected a formatted string in a SQL cursor execute call. This could lead to SQL injection if the string is not properly sanitized.",
+        "severity": "ERROR",
+        "metadata": {
+          "cwe": ["CWE-89: Improper Neutralization of Special Elements used in an SQL Command"]
+        }
+      }
+    },
+    {
+      "check_id": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+      "path": ".github/workflows/deploy.yml",
+      "start": { "line": 18, "col": 1 },
+      "end": { "line": 18, "col": 40 },
+      "extra": {
+        "message": "Untrusted input is used in a shell command, which may allow an attacker to run arbitrary shell commands.",
+        "severity": "WARNING",
+        "metadata": {
+          "cwe": ["CWE-78: Improper Neutralization of Special Elements used in an OS Command"]
+        }
+      }
+    }
+  ]
+}
