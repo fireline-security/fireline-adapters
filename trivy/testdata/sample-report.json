@@ -1,0 +1,35 @@
+{
+  "ArtifactName": "myapp:latest",
+  "Results": [
+    {
+      "Target": "myapp:latest (alpine 3.19.1)",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2024-6119",
+          "PkgName": "openssl",
+          "InstalledVersion": "3.1.4-r0",
+          "FixedVersion": "3.1.4-r2",
+          "Title": "openssl: possible denial of service in X.509 name checks",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-6119"
+        }
+      ]
+    },
+    {
+      "Target": "go.sum",
+      "Type": "gomod",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "GHSA-2c9j-2mgh-g8h5",
+          "PkgName": "github.com/example/vulnerable-pkg",
+          "InstalledVersion": "1.4.2",
+          "FixedVersion": "1.4.3",
+          "Title": "Improper input validation in example/vulnerable-pkg",
+          "Severity": "MEDIUM",
+          "PrimaryURL": "https://github.com/advisories/GHSA-2c9j-2mgh-g8h5"
+        }
+      ]
+    }
+  ]
+}
