@@ -1,0 +1,36 @@
+[
+  {
+    "Description": "AWS Access Key",
+    "StartLine": 12,
+    "EndLine": 12,
+    "Match": "AKIAIOSFODNN7EXAMPLE",
+    "Secret": "AKIAIOSFODNN7EXAMPLE",
+    "File": "deploy/config.py",
+    "Commit": "a1b2c3d4e5f6",
+    "Entropy": 3.6,
+    "Author": "someone",
+    "Email": "someone@example.com",
+    "Date": "2026-08-14T09:12:00Z",
+    "Message": "wip: add deploy config",
+    "Tags": ["key", "AWS"],
+    "RuleID": "aws-access-token",
+    "Fingerprint": "a1b2c3d4e5f6:deploy/config.py:aws-access-token:12"
+  },
+  {
+    "Description": "Generic API Key",
+    "StartLine": 4,
+    "EndLine": 4,
+    "Match": "api_key = \"sk_live_...\"",
+    "Secret": "sk_live_examplesecretvalue",
+    "File": "internal/billing/client.go",
+    "Commit": "",
+    "Entropy": 4.9,
+    "Author": "",
+    "Email": "",
+    "Date": "",
+    "Message": "",
+    "Tags": ["key"],
+    "RuleID": "generic-api-key",
+    "Fingerprint": ""
+  }
+]
