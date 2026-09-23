@@ -1,0 +1,7 @@
+/bin/
+.claude/
+
+coverage.out
+.DS_Store
+.mcp.json
+*.test

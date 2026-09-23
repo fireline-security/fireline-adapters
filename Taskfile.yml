@@ -1,0 +1,43 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build all packages
+    cmds:
+      - go build ./...
+
+  vet:
+    desc: Run go vet
+    cmds:
+      - go vet ./...
+
+  lint:
+    desc: Run gofmt, go vet, and golangci-lint
+    cmds:
+      - gofmt -l .
+      - go vet ./...
+      - golangci-lint run
+
+  fmt:
+    desc: Apply gofmt and goimports
+    cmds:
+      - gofmt -w .
+      - goimports -w -local github.com/fireline-security .
+
+  test:
+    desc: Run tests
+    cmds:
+      - go test ./... -race
+
+  coverage:
+    desc: Run tests with coverage instrumentation, print a per-package summary, and fail below an 85% minimum
+    cmds:
+      - |
+        set -e
+        go test ./... -race -coverpkg=./... -coverprofile=coverage.out
+        go tool cover -func=coverage.out
+        pct=$(go tool cover -func=coverage.out | tail -1 | awk '{print $NF}' | tr -d '%')
+        awk -v p="$pct" 'BEGIN {
+          if (p + 0 < 85) { printf "coverage %.1f%% is below the 85%% minimum\n", p; exit 1 }
+          printf "coverage %.1f%% meets the 85%% minimum\n", p
+        }'
